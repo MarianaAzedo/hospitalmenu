@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "start:dev": "nodemo index.js"
+    "start:dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -20,10 +20,10 @@
   "homepage": "https://github.com/MarianaAzedo/hospitalmenu#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongodb": "^3.6.3"
+    "mongodb": "^3.6.3",
+    "nodemon": "^2.0.6"
   },
-  "devDependencies": {
-    "nodemo": "^1.0.0"
-  }
+  "devDependencies": {}
 }
