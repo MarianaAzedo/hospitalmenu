@@ -2,6 +2,12 @@ const menu = require('../models/menu')();
 
 module.exports = () => {
   const getAllMenu = async (req, res) => {
+    //headers to allow cors
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept',
+    );
     const { menus, err } = await menu.get();
     console.log('here it goes our error ' + err);
     if (err) {
@@ -9,14 +15,15 @@ module.exports = () => {
         err,
       });
     }
+    res.json(menus);
+  };
+  const getMenuByDescription = async (req, res) => {
+    //headers to allow cors
     res.header('Access-Control-Allow-Origin', '*');
     res.header(
       'Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept',
     );
-    res.json(menus);
-  };
-  const getMenuByDescription = async (req, res) => {
     const { menus, err } = await menu.get(req.params.description);
     console.log('here it goes our error ' + err);
     if (err) {
