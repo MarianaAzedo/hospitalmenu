@@ -2,13 +2,17 @@ const db = require('../db')();
 const COLLECTION = 'menuroom';
 
 module.exports = () => {
-  const get = async (roomid = null) => {
+  const get = async (roomid = null, date = null) => {
     try {
       if (!roomid) {
         const menu = await db.get(COLLECTION);
         return { menu };
       }
-      const menu = await db.get(COLLECTION, { roomid });
+      if (date && roomid) {
+        const menu = await db.get(COLLECTION, { roomid, date });
+        return { menu };
+      }
+      const menu = await db.get(COLLECTION, { date });
       return { menu };
     } catch (err) {
       return {

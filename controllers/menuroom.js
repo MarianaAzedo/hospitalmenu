@@ -15,7 +15,42 @@ module.exports = () => {
         err,
       });
     }
+    res.json(menu);
+  };
 
+  const getMenubyRoomDate = async (req, res) => {
+    //headers to allow cors
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept',
+    );
+    const { idroom, date } = req.body;
+    const { menu, err } = await menuroom.get(idroom, date);
+    console.log('here it goes our error ' + err);
+    if (err) {
+      res.status(500).json({
+        err,
+      });
+    }
+    res.json(menu);
+  };
+
+  const getMenubyDate = async (req, res) => {
+    //headers to allow cors
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept',
+    );
+    const { date } = req.body;
+    const { menu, err } = await menuroom.get(date);
+    console.log('here it goes our error ' + err);
+    if (err) {
+      res.status(500).json({
+        err,
+      });
+    }
     res.json(menu);
   };
 
@@ -43,6 +78,8 @@ module.exports = () => {
 
   return {
     getAllMenubyRoom,
+    getMenubyRoomDate,
+    getMenubyDate,
     addMenu,
   };
 };

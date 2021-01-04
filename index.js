@@ -21,6 +21,8 @@ app.get('/menu', menu.getAllMenu); //get all the menu.
 app.get('/menu/:description', menu.getMenuByDescription); //get menu by description
 
 app.get('/menuroom', menuroom.getAllMenubyRoom); //get all the menu by room
+app.get('/menuroom', menuroom.getMenubyRoomDate); //get the menu by room
+app.get('/menuroom', menuroom.getMenubyDate); //get the menu by date
 app.post('/menuroom', menuroom.addMenu); //add Menus by room
 
 app.get('/pantries', pantries.getAllPantries); //get all pantries
