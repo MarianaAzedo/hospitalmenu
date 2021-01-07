@@ -8,11 +8,18 @@ const rooms = require('./controllers/rooms')();
 const staffuser = require('./controllers/staffuser')();
 const cors = require('cors');
 
+const { login } = require('./middleware/token');
+const auth = require('./middleware/auth');
+
 const port = process.env.PORT || 3000;
 const hostname = '0.0.0.0';
 const app = (module.export = express());
+
 app.use(bodyParser.json()); //get all the requests and transform in Json.
 app.use(cors());
+
+// app.post('/login', login);
+// app.use(auth);
 
 app.get('/users', users.getPatients); //get all the patients.
 app.get('/users/:room', users.getPatientsByRoom); //get patients by room number.
