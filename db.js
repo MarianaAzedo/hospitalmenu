@@ -1,6 +1,6 @@
 const uri = process.env.MONGO_URI;
 const MongoClient = require('mongodb').MongoClient;
-const MONGO_OPTION = { useUnifiedTopology: true, useNewURLParser: true };
+const MONGO_OPTION = { useUnifiedTopology: true };
 const DB_NAME = 'hospitalmenu';
 
 //method para recuperar os dados do Banco de Dados.
