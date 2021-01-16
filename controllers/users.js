@@ -31,8 +31,28 @@ module.exports = () => {
     }
     res.json(user);
   };
+
+  const Authenticate = async (req, res) => {
+    //headers to allow cors
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept',
+    );
+    const name = req.body.name;
+    const password = req.body.password;
+    const { user, err } = await users.authenticate(name, password);
+    if (err) {
+      res.status(500).json({
+        err,
+      });
+    }
+    res.json(user);
+  };
+
   return {
     getPatients,
     getPatientsByRoom,
+    Authenticate,
   };
 };

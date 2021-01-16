@@ -18,8 +18,7 @@ const app = (module.export = express());
 app.use(bodyParser.json()); //get all the requests and transform in Json.
 app.use(cors());
 
-// app.post('/login', login);
-// app.use(auth);
+app.post('/authenticate', users.Authenticate);
 
 app.get('/users', users.getPatients); //get all the patients.
 app.get('/users/:room', users.getPatientsByRoom); //get patients by room number.
