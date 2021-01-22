@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient;
 const MONGO_OPTION = { useUnifiedTopology: true };
 const DB_NAME = 'hospitalmenu';
 
-//method para recuperar os dados do Banco de Dados.
+//method to retrieve data from the Database.
 module.exports = () => {
   const get = (collectionName, query = {}) => {
     return new Promise((resolve, reject) => {

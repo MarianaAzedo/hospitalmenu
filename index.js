@@ -8,9 +8,6 @@ const rooms = require('./controllers/rooms')();
 const staffuser = require('./controllers/staffuser')();
 const cors = require('cors');
 
-// const { login } = require('./middleware/token');
-// const auth = require('./middleware/auth');
-
 const port = process.env.PORT || 3000;
 const hostname = '0.0.0.0';
 const app = (module.export = express());
@@ -18,13 +15,14 @@ const app = (module.export = express());
 app.use(bodyParser.json()); //get all the requests and transform in Json.
 app.use(cors());
 
-app.post('/authenticate', users.Authenticate);
+app.post('/authenticate', users.Authenticate); //post user to login
 
 app.get('/users', users.getPatients); //get all the patients.
 app.get('/users/:room', users.getPatientsByRoom); //get patients by room number.
 
 app.get('/menu', menu.getAllMenu); //get all the menu.
 app.get('/menu/:description', menu.getMenuByDescription); //get menu by description
+app.get('/menu/:allergens/filter', menu.getMenuByAllergens); // get menu by allergens
 
 app.get('/menuroom/:room/:userid', menuroom.getAllMenubyRoom); //get all the menu by room and user ID
 app.get('/menuroom', menuroom.getMenubyRoomDate); //get the menu by room

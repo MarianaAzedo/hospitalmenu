@@ -55,7 +55,7 @@ module.exports = () => {
     res.json(menu);
   };
 
-  // function (route) to add new user
+  // method (route) to add new user
   const addMenu = async (req, res) => {
     //headers to allow cors
     res.header('Access-Control-Allow-Origin', '*');
@@ -63,14 +63,11 @@ module.exports = () => {
       'Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept',
     );
-
     const userid = req.body.userid;
     const roomid = req.body.roomid;
-
     const breakfast = req.body.breakfast;
     const lunch = req.body.lunch;
     const evening = req.body.evening;
-
     const { results, err } = await menuroom.add(
       roomid,
       userid,

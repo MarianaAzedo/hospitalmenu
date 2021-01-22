@@ -9,7 +9,6 @@
 - [Setup](#setup)
 - [Example usage](#Example_usage)
 - [Changelog](#Changelog)
-- [Roadmap](#Roadmap)
 - [Author info](#Author_info)
 
 ## General info
@@ -19,7 +18,6 @@ This an app that facilitates the work of the staff, reducing the chance of error
 For this delivery, the highest priority is to create a mobile application where patients can use their mobile phones to log in and fill in their menus. This part is vital as they can only see the menus according to the particular patients’ diet. In the case where a patient has diabetes, the items containing sugar do not appear, and also an alert (push notification) where the app will notify the patient that they must fill the menu.
 
 As for the staff, an application where they can monitor the menus made, and also can fill the menu for a specific room- if a patient for some reason cannot do it alone.
-
 
 ## Technologies
 
@@ -65,14 +63,6 @@ Endpoint:
   `'/staffuser'`
 - get the Staff by name
   `'/staffuser/:name'`
-
-## Changelog
-
-- Dec 12, 2020 - fixed import
-- Dec 17, 2020 - models controllers
-- Dec 23, 2020 - errors
-- Dec 28, 2020 - testing
-- Dec 28, 2020 - upload
 
 ## Roadmap
 
